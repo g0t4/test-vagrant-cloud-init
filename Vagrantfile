@@ -3,10 +3,22 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "bento/ubuntu-23.04" # pre-installed, FYI generic/ubuntu2310 did not have cloud-init installed
+  config.vm.box = "bento/ubuntu-23.10" # pre-installed, FYI generic/ubuntu2310 did not have cloud-init installed
 
   config.vm.box_check_update = false
 
+  # observations:
+  # - vagrant up waits for cloud init to complete: IIAC `cloud-init status --wait`
+  # - I don't think it ran cloud-init parts b/c it is disabled by what looks to be the original ubuntu installer when bento make box
+  # - vbox => storage => iso (54KB w/o IIAC cloud init file)
+  #   lsblk # has sr0 "rom" type for that ISO
+  #   sudo mkdir /mnt/testsr0
+  #   sudo mount /dev/sr0 /mnt/testsr0/
+  #   ls # yup, meta-data and user-data
+  #   #   user-data had all of my parts! (multi part)
+  #   mkdir /vagrant/sr0
+  #   cp * /vagrant/sr0
+  #
   # docs:
   # - vagrant + cloud_init:
   #   config:   https://developer.hashicorp.com/vagrant/docs/cloud-init/configuration
