@@ -1,4 +1,34 @@
+### *** ubuntu/noble64 testing w/ cloud-init
 
+# vagrant up => at very end, reported:
+#   cloud-init status --wait' failed on guest 'default'
+# ssh in =>
+cloud-init status # done
+echo $? # 2 (recoverable error, cloud-init completed with errors)
+# - https://cloudinit.readthedocs.io/en/latest/explanation/return_codes.html
+# - https://cloudinit.readthedocs.io/en/latest/explanation/failure_states.html#error-codes
+# promising enen though it failed!
+# - detailed stage level errors
+cloud-init status --format json
+cat /var/lib/cloud/data/status.json # similar to status --format json
+# FYI instance-id and previous-instance-id are the SAME (indicates first time cloud init has run)
+# /var/lib/cloud/instance/scripts/part-002 # present (my script)
+
+cloud-init status --long # => has!   detail: DataSourceNoCloud [seed=/dev/sr0][dsmode=net]
+#   that is the user-data ISO from vagrant!
+#   one issue => add-user.yaml has extra yaml docs (empty with comments)
+#      recoverable errors ()
+#  hooray my script part worked!!! =>
+#     cat /tmp/cloud-init-output.txt
+#     hello cloud-init world
+# let's recreate things and fix the add-user.yaml
+#
+#
+
+
+
+
+### *** BELOW IS FOR bento/ubuntu-2304 that I tested
 # - vagrant up waits for cloud init to complete: must accept "disabled" status?
 
 # - I don't think it ran cloud-init parts b/c it is disabled by what looks to be the original ubuntu installer when bento make box
