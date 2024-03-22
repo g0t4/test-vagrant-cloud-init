@@ -25,8 +25,16 @@ cloud-init status --long # => has!   detail: DataSourceNoCloud [seed=/dev/sr0][d
 #     cat /tmp/cloud-init-output.txt
 #     hello cloud-init world
 # let's recreate things and fix the add-user.yaml
-#
-#
+#    YUP fixed!
+
+# **** boot 2 noble64 (Hung IIGC b/c i added new user w/o pass or ssh keys?)... maybe it hung like a prompt to input them! no idea but when i  commented that out in vagrantfile to not include add-user.yaml then it booted just fine
+
+# *** boot 3 - no add-user.yaml and it all worked, thus my script worked too
+cloud-init status  # => done, RC=0
+# FYI don't forget to check this spot now that my parts are running
+sudo cat /var/log/cloud-init-output.log
+
+
 
 
 
