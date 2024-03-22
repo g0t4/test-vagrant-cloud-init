@@ -21,6 +21,15 @@ Vagrant.configure("2") do |config|
     cloud_init.path = "parts/add-user.yaml"
   end
 
+  # INLINE example (not preferred b/c no syntax highlighting, completion in nested code blocks - I wonder if any plugins support this within a ruby file heredoc?)
+  # db.vm.cloud_init content_type: "text/cloud-config",
+  # inline: <<-EOF
+  #   #cloud-config
+  #   package_update: true
+  #   packages:
+  #     - postgresql
+  # EOF
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
