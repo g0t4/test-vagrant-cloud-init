@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "wesdemos/ubuntu2404-arm"
+  config.vm.box = "generic/ubuntu2310"
 
   config.vm.box_check_update = false
 
