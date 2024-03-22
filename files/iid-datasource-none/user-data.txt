@@ -1,0 +1,19 @@
+#cloud-config
+growpart:
+  mode: 'off'
+locale: en_US.UTF-8
+preserve_hostname: true
+resize_rootfs: false
+ssh_pwauth: true
+users:
+- gecos: vagrant
+  groups: adm,cdrom,dip,lxd,plugdev,sudo
+  lock_passwd: false
+  name: vagrant
+  passwd: $6$rounds=4096$5CU3LEj/MQvbkfPb$LmKEF9pCfU8R.dA.GemgE/8GT6r9blge3grJvdsVTMFKyLEQwzEF3SGWqAzjawY/XHRpWj4fOiLBrRyxJhIRJ1
+  shell: /bin/bash
+write_files:
+- content: "Disabled by Ubuntu live installer after first boot.\nTo re-enable cloud-init\
+    \ on this image run:\n  sudo cloud-init clean --machine-id\n"
+  defer: true
+  path: /etc/cloud/cloud-init.disabled
