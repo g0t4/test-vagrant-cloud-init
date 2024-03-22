@@ -1,0 +1,45 @@
+Content-ID: <1711144199@wWzQIl2tGxgSCFplR3LuC5qN.local>
+Content-Type: multipart/mixed; boundary=Boundary_Vl04XWcc5Z1AQJ1aPwM7vDyA
+MIME-Version: 1.0
+
+--Boundary_Vl04XWcc5Z1AQJ1aPwM7vDyA
+Content-ID: <1711144199@zGOAEOshpQVZGc4HW4o5SHrW.local>
+Content-Type: text/cloud-config
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json
+
+# docs
+#   https://github.com/canonical/cloud-init/tree/main/cloudinit/config/schemas
+#   network:
+#     schema:
+#       https://github.com/canonical/cloud-init/blob/main/cloudinit/config/schemas/schema-network-config-v1.json
+#       ref: https://cloudinit.readthedocs.io/en/latest/reference/base_config_reference.html
+#   cloud-config:
+#     https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json
+#   versions of schemas: https://github.com/canonical/cloud-init/blob/main/cloudinit/config/schemas/versions.schema.cloud-config.json #  ( so far v1 )
+---
+#cloud-config
+users:
+  - name: foobar
+    # ssh_authorized_keys:
+    groups: docker
+
+# maybes:
+#   apt_update: true
+#   apt_upgrade: false
+
+---
+# subiquity autoinstall schema
+#   https://raw.githubusercontent.com/canonical/subiquity/main/autoinstall-system-setup-schema.json
+#   https://raw.githubusercontent.com/canonical/subiquity/main/autoinstall-schema.json
+#   https://ubuntu.com/server/docs/install/autoinstall-schema
+
+--Boundary_Vl04XWcc5Z1AQJ1aPwM7vDyA
+Content-ID: <1711144199@l3UF0SzEgNWEcoTyzrWPWfz6.local>
+Content-Type: text/x-shellscript
+
+#!/usr/bin/env bash
+
+echo "hello cloud-init world" > /tmp/cloud-init-output.txt
+
+--Boundary_Vl04XWcc5Z1AQJ1aPwM7vDyA
