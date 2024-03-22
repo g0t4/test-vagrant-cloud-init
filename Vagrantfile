@@ -15,6 +15,11 @@ Vagrant.configure("2") do |config|
   #   vagrant currently supports user_data type only (i.e. not vendor_data or meta_data)
   # - cloud-init examples: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
   #   - references: https://cloudinit.readthedocs.io/en/latest/reference/index.html
+ 
+  # install cloud-init (does this need to be installed into box or will this provisioner be followed by vagrant calling cloud-init?)
+  config.vm.provision "shell", inline: <<-SHELL
+    apt install -y cloud-init
+  SHELL
 
   # user_data part
   config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/add-user.yaml"
