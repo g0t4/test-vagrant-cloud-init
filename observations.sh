@@ -31,5 +31,26 @@ Disabled by Ubuntu live installer after first boot.
 To re-enable cloud-init on this image run:
   sudo cloud-init clean --machine-id
 
+# /var/lib/cloud
+#  instance => instances/iid-datasource-none
+#  scripts => none, just empty dirs for: vendor, per-boot, per-instance, per-once
+#  data
+#    instance-id => iid-datasource-none
+#    previous-instance-id => NO_PREVIOUS_INSTANCE_ID
+#    previous-datasource => DataSourceNone: DataSourceNone
+#    result.json => 
+#      {
+#      "v1": {
+#        "datasource": "DataSourceNone",
+#        "errors": []
+#      }
+#      }
+#    status => TLDR v1 => no errors anywhere, start/stop times for init, init-local, modules-config, modules-final
+#                           BUT no start/stop for modules-init
+#                           stage null (not set)
+#  cat sem/config_scripts_per_once.once => 1564: 1682478562.7571
+#  instances => iid-datasource-none  (rest of files in here)
+#      sudo cat cloud-config.txt => partially matches https://github.com/chef/bento/blob/main/packer_templates/http/ubuntu/user-data#L7 ... which is bento's user-data... also a mix of disabling cloud-init by writing the file... /etc/cloud/cloud-init.disabled
+#         no vendor-data to speak of so just gonna be auto install first run from bento packer template
 
 
