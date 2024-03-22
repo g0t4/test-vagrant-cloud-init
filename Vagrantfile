@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   # observations:
   # - vagrant up waits for cloud init to complete: IIAC `cloud-init status --wait`
   # - I don't think it ran cloud-init parts b/c it is disabled by what looks to be the original ubuntu installer when bento make box
+  #     yup /tmp/cloud-init-output.txt # does not exist, NOR does foobar user in add-user.yaml
   # - vbox => storage => iso (54KB w/o IIAC cloud init file)
   #   lsblk # has sr0 "rom" type for that ISO
   #   sudo mkdir /mnt/testsr0
@@ -18,6 +19,7 @@ Vagrant.configure("2") do |config|
   #   #   user-data had all of my parts! (multi part)
   #   mkdir /vagrant/sr0
   #   cp * /vagrant/sr0
+  #   *** TLDR vagrant does properly setup user-data, just need to change the VM to clean/re-run cloud init or otherwise to trigger it all in one go... or manually hook stuff up from vagrant except that I want to just see how it all integrates in vagrant (obviously I can run cloud-init manually too)
   #
   # docs:
   # - vagrant + cloud_init:
