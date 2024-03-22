@@ -1,5 +1,18 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json
 
+#cloud-config
+users:
+  - name: foobar
+    # ssh_authorized_keys:
+    groups: docker
+# maybes:
+#   apt_update: true
+#   apt_upgrade: false
+
+#
+#
+#
+#
 # docs
 #   https://github.com/canonical/cloud-init/tree/main/cloudinit/config/schemas
 #   network:
@@ -9,18 +22,7 @@
 #   cloud-config:
 #     https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json
 #   versions of schemas: https://github.com/canonical/cloud-init/blob/main/cloudinit/config/schemas/versions.schema.cloud-config.json #  ( so far v1 )
----
-#cloud-config
-users:
-  - name: foobar
-    # ssh_authorized_keys:
-    groups: docker
 
-# maybes:
-#   apt_update: true
-#   apt_upgrade: false
-
----
 # subiquity autoinstall schema
 #   https://raw.githubusercontent.com/canonical/subiquity/main/autoinstall-system-setup-schema.json
 #   https://raw.githubusercontent.com/canonical/subiquity/main/autoinstall-schema.json
