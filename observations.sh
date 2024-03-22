@@ -13,6 +13,9 @@ cloud-init status --format json
 cat /var/lib/cloud/data/status.json # similar to status --format json
 # FYI instance-id and previous-instance-id are the SAME (indicates first time cloud init has run)
 # /var/lib/cloud/instance/scripts/part-002 # present (my script)
+#  copy out files: (on  host, pwsh)
+#   vagrant ssh-config > sshconfig
+#   scp -F .\sshconfig default:/var/lib/cloud/instances/i-449867c3b8b243bc842d080e62ca7c73/user-data.txt  .
 
 cloud-init status --long # => has!   detail: DataSourceNoCloud [seed=/dev/sr0][dsmode=net]
 #   that is the user-data ISO from vagrant!
