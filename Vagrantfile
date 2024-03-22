@@ -29,6 +29,8 @@ Vagrant.configure("2") do |config|
 
   # user_data part
   config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/add-user.yaml"
+  config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/packages.yaml"
+  config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/set-hostname.yaml"
 
   # script part
   config.vm.cloud_init content_type: "text/x-shellscript", path: "./parts/scripty.sh"
