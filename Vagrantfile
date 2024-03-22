@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "bento/ubuntu-23.04"
+  config.vm.box = "bento/ubuntu-23.04" # pre-installed, FYI generic/ubuntu2310 did not have cloud-init installed
 
   config.vm.box_check_update = false
 
@@ -15,11 +15,12 @@ Vagrant.configure("2") do |config|
   #   vagrant currently supports user_data type only (i.e. not vendor_data or meta_data)
   # - cloud-init examples: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
   #   - references: https://cloudinit.readthedocs.io/en/latest/reference/index.html
- 
+
+  # install after boot and then trigger cloud-init again, is that even possible? (ie generic/ubuntu2310 box)
   # install cloud-init (does this need to be installed into box or will this provisioner be followed by vagrant calling cloud-init?)
-  config.vm.provision "shell", inline: <<-SHELL
-    apt install -y cloud-init
-  SHELL
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt install -y cloud-init
+  # SHELL
 
   # user_data part
   config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/add-user.yaml"
