@@ -5,6 +5,9 @@ users:
   - name: foobar
     # ssh_authorized_keys:
     groups: docker
+    ssh_import_id:
+      - gh:g0t4
+
 # maybes:
 #   apt_update: true
 #   apt_upgrade: false
