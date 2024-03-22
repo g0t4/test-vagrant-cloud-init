@@ -34,6 +34,12 @@ cloud-init status  # => done, RC=0
 # FYI don't forget to check this spot now that my parts are running
 sudo cat /var/log/cloud-init-output.log
 
+# *** boot 4 - add-user back w/ import ssh keys
+cat /etc/passwd | grep foo # w00h00 there she is
+sudo cat /home/foobar/.ssh/authorized_keys  # yaya had both keys
+
+# *** boot 5 - drop import and see if still hanging or if that was fluke
+
 
 
 
