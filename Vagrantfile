@@ -1,34 +1,22 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
   config.vm.box = "wesdemos/ubuntu2404-arm"
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+  config.vm.box_check_update = false
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # docs:
+  # - vagrant + cloud_init: https://developer.hashicorp.com/vagrant/docs/cloud-init/configuration
+  # - cloud-init examples: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+  #   - references: https://cloudinit.readthedocs.io/en/latest/reference/index.html
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  # vagrant currently supports user_data type only (i.e. not vendor_data or meta_data)
+  config.vm.cloud_init :user_data do |cloud_init|
+    cloud_init.content_type = "text/cloud-config"
+    cloud_init.path = "parts/add-user.yaml"
+  end
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
