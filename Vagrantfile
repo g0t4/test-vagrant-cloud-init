@@ -12,14 +12,15 @@ Vagrant.configure("2") do |config|
   #   config:   https://developer.hashicorp.com/vagrant/docs/cloud-init/configuration
   #   example:  https://developer.hashicorp.com/vagrant/docs/cloud-init/usage
   #   VirtualBox only?
+  #   vagrant currently supports user_data type only (i.e. not vendor_data or meta_data)
   # - cloud-init examples: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
   #   - references: https://cloudinit.readthedocs.io/en/latest/reference/index.html
 
-  # vagrant currently supports user_data type only (i.e. not vendor_data or meta_data)
-  config.vm.cloud_init :user_data do |cloud_init|
-    cloud_init.content_type = "text/cloud-config"
-    cloud_init.path = "parts/add-user.yaml"
-  end
+  # user_data part
+  config.vm.cloud_init content_type: "text/cloud-config", path: "./parts/add-user.yaml"
+
+  # script part
+  config.vm.cloud_init content_type: "text/x-shellscript", path: "./parts/scripty.sh"
 
   # INLINE example (not preferred b/c no syntax highlighting, completion in nested code blocks - I wonder if any plugins support this within a ruby file heredoc?)
   # db.vm.cloud_init content_type: "text/cloud-config",
