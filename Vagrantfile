@@ -3,11 +3,14 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "bento/ubuntu-23.10" # pre-installed, FYI generic/ubuntu2310 did not have cloud-init installed
+  # FYI generic/ubuntu2310 did not have cloud-init installed
+  # config.vm.box = "bento/ubuntu-23.10" # pre-installed, but disabled
+  config.vm.box = "ubuntu/noble64"
+  # post has a box that works:
+  #    https://www.grzegorowski.com/how-to-test-cloud-init-locally-with-vagrant
 
   config.vm.box_check_update = false
 
-  
   #
   # docs:
   # - vagrant + cloud_init:
