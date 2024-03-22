@@ -8,7 +8,10 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
 
   # docs:
-  # - vagrant + cloud_init: https://developer.hashicorp.com/vagrant/docs/cloud-init/configuration
+  # - vagrant + cloud_init:
+  #   config:   https://developer.hashicorp.com/vagrant/docs/cloud-init/configuration
+  #   example:  https://developer.hashicorp.com/vagrant/docs/cloud-init/usage
+  #   VirtualBox only?
   # - cloud-init examples: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
   #   - references: https://cloudinit.readthedocs.io/en/latest/reference/index.html
 
