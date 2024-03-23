@@ -7,6 +7,13 @@
 # use latest vagrant part file (no need to update user-data ISO)
 sudo cloud-init single --file /vagrant/parts/packages.yaml --name write-files --frequency always
 
+# test bootcmd/runcmd
+sudo cloud-init single --file /vagrant/parts/packages.yaml --name bootcmd --frequency always
+sudo cloud-init single --file /vagrant/parts/packages.yaml --name runcmd --frequency always
+
+# final_message
+sudo cloud-init single --file /vagrant/parts/message.yaml --name final_message --frequency always
+
 ```
 
 ### *** tools

@@ -19,9 +19,9 @@ write_files:
 
 # on every boot:
 bootcmd:
-- [ sh, -xc, "echo $(date) > /tmp/boots.log" ]
+- [ sh, -xc, "echo $(date) >> /tmp/bootcmd.log" ]
 
 
 # on first boot:
 runcmd:
-- [ sh, -xc, "echo $(date) HELLO runcmd!'" ]
+- [ sh, -xc, "echo $(date) HELLO runcmd! >> /tmp/runcmd.log'" ]
