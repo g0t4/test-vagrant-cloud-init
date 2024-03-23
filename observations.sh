@@ -1,4 +1,4 @@
-### *** misc
+### *** cloud-* services
 
 ```bash
 
@@ -17,7 +17,18 @@ ExecStart=/usr/bin/cloud-init init --local
 ExecStart=/usr/bin/cloud-init modules --mode=final
 ExecStart=/usr/bin/cloud-init modules --mode=config
 ExecStart=/usr/bin/cloud-init init
-...
+# ...
+
+
+```
+
+### *** packages
+
+```bash
+# gated so won't run w/o override freq
+sudo cloud-init single --name package_update_upgrade_install
+# always
+sudo cloud-init single --name package_update_upgrade_install --frequency always
 
 ```
 
