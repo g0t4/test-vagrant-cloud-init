@@ -3,10 +3,12 @@
 #cloud-config
 users:
   - name: foobar
-    # ssh_authorized_keys:
+    # ssh_authorized_keys: # validated can ssh in with the key!
     groups: docker
-    # ssh_import_id:
-    #   - gh:g0t4
+    ssh_import_id:
+      - gh:g0t4
+    # mod vagrant user to add group root so can avoid sudo to read logs (well ok might need chmod too)
+    gecos: why-oh-why-gecos
 
 # maybes:
 #   apt_update: true

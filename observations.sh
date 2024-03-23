@@ -41,6 +41,9 @@ sudo cat /home/foobar/.ssh/authorized_keys  # yaya had both keys
 # *** boot 5 - drop import and see if still hanging or if that was fluke
 #  worked fine so must've been a fluke on previous boot hanging twice?!
 
+# also useful: detailed steps:
+sudo batcat /var/log/cloud-init.log
+# boot X => cloudy hostname and packages worked!
 
 
 
