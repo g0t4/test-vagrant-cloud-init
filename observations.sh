@@ -1,3 +1,26 @@
+### *** misc
+
+```bash
+
+sudo systemctl list-dependencies  | grep cloud
+●   ├─cloud-init.target
+●   │ ├─cloud-config.service
+●   │ ├─cloud-final.service
+●   │ ├─cloud-init-hotplugd.socket
+●   │ ├─cloud-init-local.service
+●   │ └─cloud-init.service
+
+sudo systemctl status cloud-*
+
+sudo systemctl cat cloud* | grep ExecStart
+ExecStart=/usr/bin/cloud-init init --local
+ExecStart=/usr/bin/cloud-init modules --mode=final
+ExecStart=/usr/bin/cloud-init modules --mode=config
+ExecStart=/usr/bin/cloud-init init
+...
+
+```
+
 ### *** ubuntu/noble64 testing w/ cloud-init
 
 # vagrant up => at very end, reported:
