@@ -53,9 +53,36 @@ sudo batcat /var/log/cloud-init.log
 #       IIAC I need to run that part or set it to always before it would
 #       sudo cat /var/log/cloud-init-output.log  | grep HELLO 
 #         AND yup my HELLO WORLD is only in output once (unless perhaps the output is cleared on each reboot?) 
-
-#   *** rerun script?""
+#            and double checked, yup my modified script change HELLOWORLDFOOBP2 didn't show up
+# *** force re-run script
+#   reboot has script changes in part-004 (good deal)
+# now force re-run: (module (name) == scripts-user)
+sudo cloud-init single --name scripts-user --frequency always  # w00h00
+#     # w00h00 I get the HELLO WORLD OUTPUT
+sudo cloud-init single --name scripts-user
+#     no HELLO WORLD b/c it is already run and not providing frequency here
+# modules:
+#   scripts-user https://cloudinit.readthedocs.io/en/latest/reference/modules.html#scripts-user
+#   various config content is mapped to modules, modules are the part that do the work...
+#      i.e. if I have "hostname: foo" in my cloud-conf... the "set_hostname" modules does the work
+#             set_hostname: https://cloudinit.readthedocs.io/en/latest/reference/modules.html#set-hostname
+#         so
+#         sudo hostname changed
+#         #logout/in to see prompt change
+#         sudo cloud-init single --name set_hostname  --frequency always
+#         #logout/in and its BACK!
+#   see modules listing: https://cloudinit.readthedocs.io/en/latest/reference/modules.html
 #
+# *** users-and-groups
+#    
+
+
+
+
+#  *** misc
+sudo cloud-init query -l # list
+sudo cloud-init query userdata
+
 
 
 ### *** BELOW IS FOR bento/ubuntu-2304 that I tested
