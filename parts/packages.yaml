@@ -11,6 +11,8 @@ packages:
   - silversearcher-ag
 
 
+
+
 write_files:
 - owner: vagrant:vagrant
   path: /home/vagrant/.hushlogin

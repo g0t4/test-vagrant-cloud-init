@@ -1,0 +1,5 @@
+#cloud-config
+
+# always?
+package_update: true
+package_upgrade: true
