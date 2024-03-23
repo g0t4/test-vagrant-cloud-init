@@ -1,9 +1,38 @@
+### *** todo fish shell dotfiles part and use via include+URL
+
+### *** singles
+
+```bash
+
+# use latest vagrant part file (no need to update user-data ISO)
+sudo cloud-init single --file /vagrant/parts/packages.yaml --name write-files --frequency always
+
+```
+
 ### *** tools
 
 ```bash
 
-cloud-init devel make_mime # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/devel/make_mime.py
-cloud-init devel make-mime -a /vagrant/parts/add-user.yaml:cloud-config -a /vagrant/parts/packages.yaml:cloud-config
+$ cloud-init devel make_mime # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/devel/make_mime.py
+$ cloud-init devel make-mime -a /vagrant/parts/add-user.yaml:cloud-config \
+  -a /vagrant/parts/packages.yaml:cloud-config \
+  -a /vagrant/parts/scripty.sh:x-shellscript-per-boot \
+  -a /vagrant/parts/scripty.sh:x-shellscript-per-instance \
+  -a /vagrant/parts/scripty.sh:x-shellscript-per-once
+
+$ cloud-init devel make-mime  -l
+# cloud-boothook
+# cloud-config
+# cloud-config-archive
+# cloud-config-jsonp
+# jinja2
+# part-handler
+# x-include-once-url
+# x-include-url
+# x-shellscript
+# x-shellscript-per-boot
+# x-shellscript-per-instance
+# x-shellscript-per-once
 
 # devel render # jinja2 instance-data part rendering (scripts/cloud-config)
 
