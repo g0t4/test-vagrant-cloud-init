@@ -3,3 +3,4 @@
 echo "hello cloud-init world" > /tmp/cloud-init-output.txt
 
 echo HELLO WORLD CLOUD-INITY
+echo HELLO WORLD FOOBOODOO2

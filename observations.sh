@@ -45,7 +45,17 @@ sudo cat /home/foobar/.ssh/authorized_keys  # yaya had both keys
 sudo batcat /var/log/cloud-init.log
 # boot X => cloudy hostname and packages worked!
 
+# *** rebooted w/ changed add-user.yaml
+#  vagrant gave hints that it was running cloud-inits again (IIGC b/c always stuff needs to run agin)
+#  sudo cat /var/lib/cloud/instances/i-2048c7f60c2847edbcb450ba9cf152f5/user-data.txt
+#    - user-data was updated!
+#    - but as would be logical, it does not appear my parts were run (gecos change not in /etc/passwd)...
+#       IIAC I need to run that part or set it to always before it would
+#       sudo cat /var/log/cloud-init-output.log  | grep HELLO 
+#         AND yup my HELLO WORLD is only in output once (unless perhaps the output is cleared on each reboot?) 
 
+#   *** rerun script?""
+#
 
 
 ### *** BELOW IS FOR bento/ubuntu-2304 that I tested
