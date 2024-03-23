@@ -3,6 +3,8 @@
 ```bash
 
 cloud-init devel make_mime # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/devel/make_mime.py
+cloud-init devel make-mime -a /vagrant/parts/add-user.yaml:cloud-config -a /vagrant/parts/packages.yaml:cloud-config
+
 # devel render # jinja2 instance-data part rendering (scripts/cloud-config)
 
 cloud-init single # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/main.py#L629
