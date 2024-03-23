@@ -74,7 +74,8 @@ sudo cloud-init single --name scripts-user
 #   see modules listing: https://cloudinit.readthedocs.io/en/latest/reference/modules.html
 #
 # *** users-and-groups
-#    
+#    https://cloudinit.readthedocs.io/en/latest/reference/modules.html#users-and-groups
+#    FYI - and _ are interchangeable in module name passing
 
 
 

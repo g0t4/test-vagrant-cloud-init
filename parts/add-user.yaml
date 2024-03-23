@@ -8,8 +8,8 @@ users:
     ssh_import_id:
       - gh:g0t4
     # mod vagrant user to add group root so can avoid sudo to read logs (well ok might need chmod too)
-    gecos: why-oh-why-gecos
-
+    gecos: gecos2
+    
 # maybes:
 #   apt_update: true
 #   apt_upgrade: false
