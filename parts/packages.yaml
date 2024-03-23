@@ -16,3 +16,12 @@ packages:
 write_files:
 - owner: vagrant:vagrant
   path: /home/vagrant/.hushlogin
+
+# on every boot:
+bootcmd:
+- [ sh, -xc, "echo $(date) > /tmp/boots.log" ]
+
+
+# on first boot:
+runcmd:
+- [ sh, -xc, "echo $(date) HELLO runcmd!'" ]
