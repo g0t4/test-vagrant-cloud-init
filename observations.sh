@@ -1,3 +1,18 @@
+### *** tools
+
+```bash
+
+cloud-init devel make_mime # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/devel/make_mime.py
+# devel render # jinja2 instance-data part rendering (scripts/cloud-config)
+
+cloud-init single # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/main.py#L629
+cloud-init modules # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/main.py#L567
+cloud-init features # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/main.py#L854
+cloud-init init # https://github.com/canonical/cloud-init/blob/main/cloudinit/cmd/main.py#L293
+
+
+```
+
 ### *** cloud-* services
 
 ```bash
