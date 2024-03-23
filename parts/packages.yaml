@@ -5,4 +5,4 @@ packages:
   - jq
   - grc
   - command-not-found
-  # - silversearcher-ag
+  - silversearcher-ag
