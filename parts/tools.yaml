@@ -1,0 +1,7 @@
+#cloud-config
+packages:
+  - bat
+  - jq
+  - grc
+  - command-not-found
+  - silversearcher-ag
