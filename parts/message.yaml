@@ -1,5 +1,4 @@
-
-# sudo cloud-init single --file /vagrant/parts/message.yaml --name final_message --frequency always
+#cloud-config
 
 final_message: |
   cloud-init has finished
@@ -7,3 +6,5 @@ final_message: |
   timestamp: $timestamp
   datasource: $datasource
   uptime: $uptime
+
+# sudo cloud-init single --file /vagrant/parts/message.yaml --name final_message --frequency always

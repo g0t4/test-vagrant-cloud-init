@@ -1,0 +1,2 @@
+# if file doesn't match convention, can mark its schema inline:
+# yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/schema-cloud-config-v1.json

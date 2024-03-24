@@ -1,2 +1,5 @@
+#cloud-config
+
+
 # TODO setup one of my cloud parts to be always/per-boot
 # perhaps update packages if nothing better to do
