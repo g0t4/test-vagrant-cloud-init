@@ -1,0 +1,3 @@
+#include
+https://raw.githubusercontent.com/g0t4/dotfiles/master/install/cloud-init/wsl-dotfiles.yaml?token=foo
+# careful raw.githubusercontent caches files (change token value to get latest, ie use date)
